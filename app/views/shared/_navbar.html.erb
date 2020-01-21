@@ -1,17 +1,32 @@
-<div class="d-flex justify-content-around">
-  <ul class="navbar-nav mr-auto">
-<!--     <li class="nav-item active">
-      <a class="nav-link" href="/ideas">Ideas</a>
-    </li> -->
-    <p class="navbar-text float-right">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
-    </p>
-  </ul>
+
+
+
+
+<div class="pos-f-t">
+  <nav class="navbar navbar-dark d-flex p-1 ">
+    <button class="navbar-toggler  p-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+   <!--    <span class="navbar-toggler-icon"></span> -->
+      <i class="fas fa-bars" style="color: black"></i>
+    </button>
+    <div class="logo d-flex justify-content-center pb-3">
+      <%= image_tag "yuvika-logo.png", alt: "alttext" %>
+    </div>
+  </nav>
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class=" p-4">
+      <h6 class="border-bottom">Collapsed content</h6>
+      <span class="text-muted">
+      <p class="m-0 border-bottom">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      </p>
+      </span>
+    </div>
+  </div>
 </div>
