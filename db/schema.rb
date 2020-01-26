@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_005805) do
+ActiveRecord::Schema.define(version: 2020_01_26_115608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2020_01_21_005805) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["outfit_id"], name: "index_favourites_on_outfit_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "outfit_id", null: false
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["outfit_id"], name: "index_images_on_outfit_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -45,7 +53,6 @@ ActiveRecord::Schema.define(version: 2020_01_21_005805) do
   end
 
   create_table "outfits", force: :cascade do |t|
-    t.string "images"
     t.string "title"
     t.decimal "price"
     t.text "product_details"
@@ -99,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_01_21_005805) do
 
   add_foreign_key "favourites", "outfits"
   add_foreign_key "favourites", "users"
+  add_foreign_key "images", "outfits"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "outfits"
   add_foreign_key "orders", "users"
