@@ -1,5 +1,11 @@
-<div class="d-flex justify-content-around">
-  <i class="fas fa-heart"></i>
-  <i class="fas fa-shopping-basket"></i>
+<footer class=" footer d-flex justify-content-around text-align-center">
+  <%= link_to outfits_index_path do %>
   <i class="fas fa-female"></i>
-</div>
+  <% end %>
+  <%= link_to wardrobes_show_path do %>
+  <i class="fas fa-shopping-basket"></i>
+  <% end %>
+  <%= link_to favourites_show_path do %>
+  <i class="fas fa-heart"></i>
+  <% end %>
+</footer>
