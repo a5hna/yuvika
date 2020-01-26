@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'orders/new'
+  get 'favourites/show'
+  get 'wardrobes/show'
+  get 'outfits/index'
+  get 'outfits/show'
   devise_for :users
   root to: 'outfits#index'
 
